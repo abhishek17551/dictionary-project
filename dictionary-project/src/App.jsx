@@ -1,12 +1,51 @@
+import { useEffect, useState } from "react"
+import axios from 'axios'
+import { Container } from '@mui/material';
+
 
 
 function App() {
+
+  const [meaning,setMeaning] = useState([])
+  const [word,setWord] = useState("")
   
+  const fetchData = async () => {
+    try {
+      const data = await axios.get('https://api.dictionaryapi.dev/api/v2/entries/en/incessant')
+    
+      setMeaning(data.data[0].meanings[0].definitions[0].definition)
+      console.log(meaning)
+    }
+    catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchData()
+  },[])
 
   return (
-    <>
-      <h1>Jai Ganesha</h1>
-    </>
+    <div 
+      className="App"
+      style={{
+        height: "100vh",
+        backgroundColor:  "#282c34",
+      }}
+    >
+      <Container 
+        maxWidth='md'
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100vh",
+          justifyContent: "space-evenly",
+        }}
+      >
+
+      </Container>
+
+    </div>
   )
 }
 
