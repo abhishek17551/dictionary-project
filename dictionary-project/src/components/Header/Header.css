@@ -13,17 +13,16 @@
     font-family: "Montserrat", sans-serif;
     color: wheat;
   }
-  
-  @media (max-width: 900px) {
-    .header {
-      justify-content: space-evenly;
-      height: 25vh;
-    }
-    .title {
-      font-size: 11vw;
-    }
+
+  #outlined-select-currency{
+    width: 12.5rem;
+  }
+
+  #standard-basic{
+    width: 15.5rem;
   }
   
+
   .inputs {
     width: 100%;
     display: flex;
@@ -37,3 +36,14 @@
   .select {
     width: 43%;
   }
+
+  @media (max-width: 900px) {
+    .header {
+      justify-content: space-evenly;
+      height: 25vh;
+    }
+    .title {
+      font-size: 11vw;
+    }
+  }
+  

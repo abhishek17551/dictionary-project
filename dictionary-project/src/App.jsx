@@ -9,13 +9,13 @@ function App() {
 
   const [meaning,setMeaning] = useState([])
   const [word,setWord] = useState("")
+  const [category,setCategory] = useState("en")
   
   const fetchData = async () => {
     try {
-      const data = await axios.get('https://api.dictionaryapi.dev/api/v2/entries/en/incessant')
-    
-      setMeaning(data.data[0].meanings[0].definitions[0].definition)
-      
+      const data = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/${category}/${word}`)
+      setMeaning(data.data)
+      console.log(meaning)
     }
     catch (error) {
       console.error(error)
@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     fetchData()
-  },[])
+  },[word,category])
 
   return (
     <div 
@@ -44,7 +44,7 @@ function App() {
           justifyContent: "space-evenly",
         }}
       >
-        <Header/>
+        <Header category={category} setCategory={setCategory} word={word} setWord={setWord}/>
       </Container>
 
     </div>
