@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import axios from 'axios'
 import { Container } from '@mui/material';
 import Header from "./components/Header/Header";
+import Definition from "./components/Definitions/Definition";
 
 
 
@@ -45,6 +46,9 @@ function App() {
         }}
       >
         <Header category={category} setCategory={setCategory} word={word} setWord={setWord}/>
+        {
+          meaning && <Definition word={word} category={category} meanings={meaning}/>
+        }
       </Container>
 
     </div>
