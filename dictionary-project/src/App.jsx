@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { Container } from '@mui/material';
+import Header from "./components/Header/Header";
 
 
 
@@ -14,7 +15,7 @@ function App() {
       const data = await axios.get('https://api.dictionaryapi.dev/api/v2/entries/en/incessant')
     
       setMeaning(data.data[0].meanings[0].definitions[0].definition)
-      console.log(meaning)
+      
     }
     catch (error) {
       console.error(error)
@@ -31,6 +32,7 @@ function App() {
       style={{
         height: "100vh",
         backgroundColor:  "#282c34",
+        color:'white'
       }}
     >
       <Container 
@@ -42,7 +44,7 @@ function App() {
           justifyContent: "space-evenly",
         }}
       >
-
+        <Header/>
       </Container>
 
     </div>
